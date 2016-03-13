@@ -1,0 +1,10 @@
+launchConfigurations/
+.DS_Store
+.idea
+**/*-compiled.js*
+generated
+dist
+logs
+node_modules
+
+
