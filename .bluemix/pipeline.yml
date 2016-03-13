@@ -36,18 +36,16 @@ stages:
           mv ./node_modules.bak ./node_modules
 
           npm run lint
-        #enable_tests: false
-        #test_file_pattern: 'test/*.xml'
       - name: specs
         type: tester
         script: |-
           #!/bin/bash
           mv ./node_modules.bak ./node_modules
 
-          npm run spec
-        #enable_tests: true
-        #test_file_pattern: '*.xml, test/*.xml'
-  - name: Build
+          npm run test:remote
+        enable_tests: true
+        test_file_pattern: '*.xml, generated/*.xml'
+  - name: Last Known Good Build
     inputs:
       - type: job
         stage: Package
@@ -60,13 +58,13 @@ stages:
         build_type: shell
         script: |-
           #!/bin/bash
-          mv ./node_modules.bak ./node_modules
+          rm -rf ./node_modules.bak
 
           git checkout integration
           git pull origin integration
           git merge master --no-ff --log
           git push origin integration
-  - name: Deploy to Dev
+  - name: Deploy
     inputs:
       - type: job
         stage: 'Package'
