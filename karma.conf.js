@@ -60,7 +60,7 @@ module.exports = function(config) {
 
     sauceLabs: {
       recordScreenshots: false,
-      testName: 'Construrama Price Bid Specs'
+      testName: 'angular reference app unit specs'
     },
 
     autoWatch: false,
