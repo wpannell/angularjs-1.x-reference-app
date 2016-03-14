@@ -9,9 +9,10 @@ stages:
     jobs:
       - name: npm
         type: builder
-        build_type: npm
+        build_type: distribution
         script: |-
           #!/bin/bash
+
           git branch integration
           git fetch origin integration
           git merge integration --ff-only
@@ -21,11 +22,12 @@ stages:
           npm run dist
 
           mv ./node_modules ./node_modules.bak
-  - name: 'Test'
+          mv .git .git.bak
+  - name: Test
     inputs:
       - type: job
         stage: Package
-        job: npm
+        job: distribution
     triggers:
       - type: stage
     jobs:
@@ -49,16 +51,17 @@ stages:
     inputs:
       - type: job
         stage: Package
-        job: npm
+        job: distribution
     triggers:
       - type: stage
     jobs:
-      - name: merge
+      - name: 'new good build'
         type: builder
         build_type: shell
         script: |-
           #!/bin/bash
           rm -rf ./node_modules.bak
+          mv .git.bak .git
 
           git checkout integration
           git pull origin integration
@@ -67,8 +70,8 @@ stages:
   - name: Deploy
     inputs:
       - type: job
-        stage: 'Package'
-        job: npm
+        stage: Package
+        job: distribution
     triggers:
       - type: stage
     properties:
@@ -76,7 +79,7 @@ stages:
         value: '${CF_APP}'
         type: text
     jobs:
-      - name: deploy
+      - name: 'blue-green'
         type: deployer
         target:
           url: '${CF_TARGET_URL}'
@@ -86,6 +89,7 @@ stages:
         script: |-
           #!/bin/bash
           rm -rf ./node_modules.bak
+          rm -rf .git.bak
 
           cf push "${CF_APP}-dev-blue" -n "${CF_APP}-dev"
           cf delete "${CF_APP}-dev-green" --f
