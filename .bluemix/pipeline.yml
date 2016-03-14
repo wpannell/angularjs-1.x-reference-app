@@ -7,9 +7,9 @@ stages:
     triggers:
       - type: commit
     jobs:
-      - name: npm
+      - name: distribution
         type: builder
-        build_type: distribution
+        build_type: npm
         script: |-
           #!/bin/bash
 
@@ -47,7 +47,7 @@ stages:
           npm run test:remote
         enable_tests: true
         test_file_pattern: '*.xml, generated/*.xml'
-  - name: Last Known Good Build
+  - name: 'Last Known Good Build'
     inputs:
       - type: job
         stage: Package
