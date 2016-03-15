@@ -14,7 +14,7 @@ var paths = {
   html: ['client/index.html', 'client/app/**/*.html'],
   js: 'client/app/**/*!(.spec.js).js',
   styl: ['client/app/**/*.styl', 'client/style/**/*.styl'],
-  toCopy: ['client/index.html', 'client/**/*.{jpg,png}']
+  toCopy: ['client/index.html', 'client/**/*.{jpg,png,ico}']
 };
 
 
