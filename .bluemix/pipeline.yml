@@ -38,7 +38,7 @@ stages:
           mv ./node_modules.bak ./node_modules
 
           npm run lint
-      - name: specs
+      - name: 'unit specs'
         type: tester
         script: |-
           #!/bin/bash
@@ -47,7 +47,7 @@ stages:
           npm run test:remote
         enable_tests: true
         test_file_pattern: '*.xml, generated/*.xml'
-  - name: 'Last Known Good Build'
+  - name: 'Last Good Build'
     inputs:
       - type: job
         stage: Package
