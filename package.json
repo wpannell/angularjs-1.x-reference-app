@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node server",
-    "dev": "node_modules/.bin/gulp",
-    "dist": "node_modules/.bin/gulp dist",
-    "lint": "node_modules/.bin/gulp lint",
-    "test": "node_modules/karma/bin/karma start karma.conf.dev.js",
+    "dev": "gulp",
+    "dist": "gulp dist",
+    "lint": "gulp lint",
+    "test": "karma start karma.conf.dev.js",
     "test:remote": "mkdir -p generated && node_modules/karma/bin/karma start"
   },
   "engines": {
