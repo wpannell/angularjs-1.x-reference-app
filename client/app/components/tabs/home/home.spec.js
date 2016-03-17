@@ -26,11 +26,12 @@ describe('Home page', () => {
   describe('should have', () => {
     it('a first section title', () => {
       expect($(element).find('.home-title1').text()).to.equal(
-          'Cisco\’s Current Situation');
+          'Angularjs.1.x Reference App');
     });
 
     it('a second section title', () => {
-      expect($(element).find('.home-title2').text()).to.equal('Portal Objectives');
+      expect($(element).find('.home-title2').text()).to.equal(
+          'Angular 2 to follow shortly');
     });
 
     describe('a layout', () => {
@@ -43,41 +44,41 @@ describe('Home page', () => {
       describe('a first bullet which contains', () => {
         it('lorem ipsum', () => {
           expect($(element).find('.home-section1').text()).to.contain(
-              'Cisco performed an initial accounting policy assessment that');
+              'Eros odio sit, augue magnis porttitor cras urna mauris odio');
         });
 
         it('and more lorem ipsum', () => {
           expect($(element).find('.home-section1').text()).to.contain(
-              'identified 32 key accounting policy impact areas');
+              'elementum parturient pulvinar porttitor non dignissim');
         });
       });
 
       describe('a second bullet which contains ', () => {
         it('lorem ipsum', () => {
           expect($(element).find('.home-section1').text()).to.contain(
-              'Cisco, along with E&Y, has completed evaluation of the 32 impact');
+              'Arcu ridiculus nisi hac, diam! Ut scelerisque, placerat, et!');
         });
 
         it('and more lorem ipsum', () => {
           expect($(element).find('.home-section1').text()).to.contain(
-              'areas from a business policy perspective');
+              'Tortor tempor! Habitasse dictumst amet arcu sit a ut.');
         });
       });
 
       describe('and a third bullet which contains', () => {
         it('lorem ipsum', () => {
           expect($(element).find('.home-section1').text()).to.contain(
-              'Cisco needs to now begin work to evaluate system impacts and make');
+              'pulvinar etiam scelerisque nec, tincidunt in mus dictumst, placerat nec facilisis!');
         });
 
         it('more lorem ipsum', () => {
           expect($(element).find('.home-section1').text()).to.contain(
-              'required system changes to implement ASC 606, that would allow Cisco');
+              'Tortor aenean massa mus. In duis penatibus, lacus placerat augue');
         });
 
         it('and yet more lorem ipsum', () => {
           expect($(element).find('.home-section1').text()).to.contain(
-              'to be compliant with the new Standard by July-2018');
+              'pid porttitor habitasse rhoncus sagittis platea vel, rhoncus rhoncus');
         });
       });
     });
@@ -86,19 +87,19 @@ describe('Home page', () => {
       describe('a first bullet which contains', () => {
         it('lorem ipsum', () => {
           expect($(element).find('.home-section2').text()).to.contain(
-              'Showcase Accenture’s proposed solution approach, assets and');
+              'pid porttitor habitasse rhoncus sagittis platea vel, rhoncus rhoncus');
         });
 
         it('and more lorem ipsum', () => {
           expect($(element).find('.home-section2').text()).to.contain(
-              'capabilities');
+              'rhoncus rhoncus');
         });
       });
 
       describe('a second bullet which contains', () => {
         it('lorem ipsum', () => {
           expect($(element).find('.home-section2').text()).to.contain(
-              'Exhibit Accenture’s insights into Cisco business');
+              'Dis et lacus nunc tempor.');
         });
       });
 
