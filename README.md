@@ -33,13 +33,14 @@ nvm use v4.2.4
 git clone git@github.com:wpannell/angularjs-1.x-reference-app.git app
 cd app
 npm install
+npm run lint
 npm test
 ```
 
 ####Start the dev server and follow instructions:####
 
 ```
-gulp
+npm run dev
 ```
 
 ## Architecture##
