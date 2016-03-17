@@ -33,6 +33,7 @@
     "gulp-todoist": "0.0.2",
     "jeet": "6.1.2",
     "jquery": "2.1.4",
+    "json-server": "0.8.9",
     "lodash": "3.10.0",
     "node-libs-browser": "0.5.3",
     "normalize.css": "3.0.3",
