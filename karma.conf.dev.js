@@ -36,12 +36,12 @@ module.exports = function(config) {
       noInfo: true
     },
 
-    reporters: ['mocha', 'growl', 'growl-notifications'],
+    reporters: ['mocha', 'growl'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: false,
+    autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: true
+    singleRun: false
   });
 };
