@@ -23,4 +23,10 @@ describe('stack', () => {
     stack.push({});
     expect(stack.size()).to.equal(1);
   });
+
+  it('push() -> pop() leaves size === 0', () => {
+    stack.push({});
+    stack.pop();
+    expect(stack.size()).to.equal(0);
+  });
 });

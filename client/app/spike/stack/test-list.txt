@@ -1,5 +1,5 @@
 √ empty stack
-stack push leaves stack size 1
+√ stack push leaves stack size 1
 stack push and pop leaves stack size 0
 overflow
 underflow
