@@ -4,6 +4,10 @@ let expect = chai.expect;
 let stack = {
   isEmpty() {
     return true;
+  },
+
+  push() {
+
   }
 };
 
