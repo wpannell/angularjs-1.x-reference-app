@@ -2,7 +2,9 @@ import chai from 'chai';
 let expect = chai.expect;
 
 let stack = {
-
+  isEmpty() {
+    return true;
+  }
 };
 
 describe('stack', () => {
