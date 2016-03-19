@@ -7,7 +7,9 @@ let stack = {
   },
 
   push() {
+  },
 
+  size() {
   }
 };
 
