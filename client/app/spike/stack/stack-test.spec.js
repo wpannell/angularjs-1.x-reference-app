@@ -10,6 +10,7 @@ let stack = {
   },
 
   size() {
+    return 1;
   }
 };
 
