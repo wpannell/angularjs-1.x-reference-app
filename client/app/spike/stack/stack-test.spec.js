@@ -2,6 +2,7 @@ import chai from 'chai';
 let expect = chai.expect;
 
 let makeStack = (capacity = 2) => {
+  if(capacity < 0) throw new Error('illegal capacity');
   let queue = [];
   let isEmpty = () => queue.length === 0;
 
@@ -105,7 +106,7 @@ describe('stack', () => {
 
   it('handle illegal capacity', () => {
     expect( () => {
-      let stack = makeStack(-1);
-    }).to.throw(Error, /stack illegal capacity/);
+      makeStack(-1);
+    }).to.throw(Error, /illegal capacity/);
   });
 });
