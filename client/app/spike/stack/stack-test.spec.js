@@ -80,4 +80,11 @@ describe('stack', () => {
       stack.pop();
     }).to.throw(Error, /stack underflow/);
   });
+
+  it('push pop get same one back', () => {
+    let stack = makeStack();
+    let element = {};
+    stack.push(element);
+    expect(stack.pop()).to.equal(element);
+  });
 });
