@@ -2,23 +2,20 @@ import chai from 'chai';
 let expect = chai.expect;
 
 let makeStack = (capacity = 2) => {
-  let currentSize = 0;
-  let queue = null;
-  let isEmpty = () => queue === null;
+  let queue = [];
+  let isEmpty = () => queue.length === 0;
 
   let pop = () => {
-    if (currentSize === 0) throw new Error('stack underflow');
-    currentSize--;
-    return queue;
+    if (queue.length === 0) throw new Error('stack underflow');
+    return queue.pop();
   };
 
   let push = (element) => {
-    if (capacity === currentSize) throw new Error('stack overflow');
-    queue = element;
-    currentSize++;
+    if (capacity === queue.length ) throw new Error('stack overflow');
+    queue.push(element);
   };
 
-  let size = () => currentSize;
+  let size = () => queue.length ;
 
   return {
     isEmpty: isEmpty,
@@ -91,10 +88,18 @@ describe('stack', () => {
     expect(stack.pop()).to.equal(element);
   });
 
-  it('not isEmpty()', () => {
+  //it('not isEmpty()', () => {
+  //  let stack = makeStack();
+  //  stack.push({});
+  //  expect(stack.isEmpty()).to.equal(false);
+  //});
+
+  it('push 1,2 pop 2,1 leaves empty stack', () => {
     let stack = makeStack();
     stack.push({});
-    expect(stack.isEmpty()).to.equal(false);
+    stack.push([]);
+    stack.pop();
+    stack.pop();
+    expect(stack.isEmpty()).to.equal(true);
   });
-
 });
