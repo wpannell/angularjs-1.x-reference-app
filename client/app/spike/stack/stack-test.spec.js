@@ -15,7 +15,7 @@ let makeStack = (capacity = 2) => {
     queue.push(element);
   };
 
-  let size = () => queue.length ;
+  let size = () => queue.length;
 
   return {
     isEmpty: isEmpty,
