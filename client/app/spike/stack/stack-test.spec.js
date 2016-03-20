@@ -2,15 +2,16 @@ import chai from 'chai';
 let expect = chai.expect;
 
 let makeStack = () => {
+  let currentSize = 0;
   let isEmpty = () => true;
-  let pop = () => {};
-  let push = () => {};
-  let size = () => 1;
+  let pop = () => currentSize--;
+  let push = () => currentSize++;
+  let size = () => currentSize;
 
   return {
     isEmpty: isEmpty,
     pop: pop,
-    push: pop,
+    push: push,
     size: size
   };
 };
