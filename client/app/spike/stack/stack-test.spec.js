@@ -31,6 +31,6 @@ describe('stack', () => {
     let stack = makeStack();
     stack.push({});
     stack.pop();
-    //expect(stack.size()).to.equal(0);
+    expect(stack.size()).to.equal(0);
   });
 });
