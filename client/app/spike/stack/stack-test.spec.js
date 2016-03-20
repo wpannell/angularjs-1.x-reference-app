@@ -66,4 +66,10 @@ describe('stack', () => {
       expect(stack.push).to.throw(Error, /stack overflow/);
     });
   });
+
+  it('handle underflow', () => {
+    let stack = makeStack();
+    stack.pop();
+    expect(stack.pop).to.throw(Error, /stack underflow/);
+  });
 });
