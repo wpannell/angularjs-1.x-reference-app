@@ -1,7 +1,7 @@
 import chai from 'chai';
 let expect = chai.expect;
 
-let makeStack = () => {
+let makeStack = (capacity ) => {
   let currentSize = 0;
   let isEmpty = () => true;
   let pop = () => currentSize--;
@@ -34,4 +34,15 @@ describe('stack', () => {
     stack.pop();
     expect(stack.size()).to.equal(0);
   });
+
+  it('handle overflow', () => {
+    let stack = makeStack();
+    stack.push();
+    expect(stack.push).to.not.throw(Error, /stack overflow/);
+    stack.push();
+    expect(stack.push).to.not.throw(Error, /stack overflow/);
+    stack.push();
+    expect(stack.push).to.throw(Error, /stack overflow/);
+  });
+
 });
