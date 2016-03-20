@@ -1,11 +1,12 @@
 import chai from 'chai';
 let expect = chai.expect;
 
-let makeStack = (capacity = 3) => {
+let makeStack = (capacity = 2) => {
   let currentSize = 0;
   let isEmpty = () => true;
 
   let pop = () => {
+    if (currentSize === 0) throw new Error('stack underflow');
     currentSize--;
   };
 
@@ -20,8 +21,7 @@ let makeStack = (capacity = 3) => {
     isEmpty: isEmpty,
     pop: pop,
     push: push,
-    size: size,
-    capacity: capacity
+    size: size
   };
 };
 
@@ -44,32 +44,40 @@ describe('stack', () => {
     expect(stack.size()).to.equal(0);
   });
 
-  describe('handle overflow', () => {
+  describe('handle overflow with default capacity = 2', () => {
     it('doesn\'t throw', () => {
       let stack = makeStack();
-      stack.push();
-      expect(stack.push).to.not.throw(Error, /stack overflow/);
+
+      expect( () => {
+        stack.push();
+      }).to.not.throw(Error, /stack overflow/);
     });
 
     it('doesn\'t throw again', () => {
       let stack = makeStack();
-      stack.push();
-      stack.push();
-      expect(stack.push).to.not.throw(Error, /stack overflow/);
+
+      expect( () => {
+        stack.push();
+        stack.push();
+      }).to.not.throw(Error, /stack overflow/);
     });
 
     it('does finally throw', () => {
       let stack = makeStack();
-      stack.push();
-      stack.push();
-      stack.push();
-      expect(stack.push).to.throw(Error, /stack overflow/);
+
+      expect( () => {
+        stack.push();
+        stack.push();
+        stack.push();
+      }).to.throw(Error, /stack overflow/);
     });
   });
 
   it('handle underflow', () => {
     let stack = makeStack();
-    stack.pop();
-    expect(stack.pop).to.throw(Error, /stack underflow/);
+
+    expect( () => {
+      stack.pop();
+    }).to.throw(Error, /stack underflow/);
   });
 });
