@@ -90,4 +90,11 @@ describe('stack', () => {
     stack.push(element);
     expect(stack.pop()).to.equal(element);
   });
+
+  it('not isEmpty()', () => {
+    let stack = makeStack();
+    stack.push({});
+    expect(stack.isEmpty()).to.equal(false);
+  });
+
 });
