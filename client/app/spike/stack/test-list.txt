@@ -3,7 +3,8 @@
 √ stack push and pop leaves stack size 0
 √ handle overflow
 √ handle underflow
-push pop get same one back
+√ push pop get same one back
+√ not is Empty
 push 1,2 pop 2,1 leaves empty stack
 handle stack with negative size
 
