@@ -3,8 +3,8 @@ let expect = chai.expect;
 
 let makeStack = (capacity = 2) => {
   let currentSize = 0;
-  let isEmpty = () => true;
   let queue = null;
+  let isEmpty = () => queue === null;
 
   let pop = () => {
     if (currentSize === 0) throw new Error('stack underflow');
