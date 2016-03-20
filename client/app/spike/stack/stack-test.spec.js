@@ -102,4 +102,10 @@ describe('stack', () => {
     stack.pop();
     expect(stack.isEmpty()).to.equal(true);
   });
+
+  it('handle illegal capacity', () => {
+    expect( () => {
+      let stack = makeStack(-1);
+    }).to.throw(Error, /stack illegal capacity/);
+  });
 });
