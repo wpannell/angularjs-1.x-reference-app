@@ -88,11 +88,11 @@ describe('stack', () => {
     expect(stack.pop()).to.equal(element);
   });
 
-  //it('not isEmpty()', () => {
-  //  let stack = makeStack();
-  //  stack.push({});
-  //  expect(stack.isEmpty()).to.equal(false);
-  //});
+  it('not isEmpty()', () => {
+    let stack = makeStack();
+    stack.push({});
+    expect(stack.isEmpty()).to.equal(false);
+  });
 
   it('push 1,2 pop 2,1 leaves empty stack', () => {
     let stack = makeStack();
