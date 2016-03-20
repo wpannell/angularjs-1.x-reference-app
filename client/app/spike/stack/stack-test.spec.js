@@ -4,14 +4,17 @@ let expect = chai.expect;
 let makeStack = (capacity = 2) => {
   let currentSize = 0;
   let isEmpty = () => true;
+  let queue = null;
 
   let pop = () => {
     if (currentSize === 0) throw new Error('stack underflow');
     currentSize--;
+    return queue;
   };
 
-  let push = () => {
+  let push = (element) => {
     if (capacity === currentSize) throw new Error('stack overflow');
+    queue = element;
     currentSize++;
   };
 
@@ -33,13 +36,13 @@ describe('stack', () => {
 
   it('push() leaves size === 1', () => {
     let stack = makeStack();
-    stack.push();
+    stack.push({});
     expect(stack.size()).to.equal(1);
   });
 
   it('push() -> pop() leaves size === 0', () => {
     let stack = makeStack();
-    stack.push();
+    stack.push({});
     stack.pop();
     expect(stack.size()).to.equal(0);
   });
@@ -49,7 +52,7 @@ describe('stack', () => {
       let stack = makeStack();
 
       expect( () => {
-        stack.push();
+        stack.push({});
       }).to.not.throw(Error, /stack overflow/);
     });
 
@@ -57,8 +60,8 @@ describe('stack', () => {
       let stack = makeStack();
 
       expect( () => {
-        stack.push();
-        stack.push();
+        stack.push({});
+        stack.push({});
       }).to.not.throw(Error, /stack overflow/);
     });
 
@@ -66,9 +69,9 @@ describe('stack', () => {
       let stack = makeStack();
 
       expect( () => {
-        stack.push();
-        stack.push();
-        stack.push();
+        stack.push({});
+        stack.push({});
+        stack.push({});
       }).to.throw(Error, /stack overflow/);
     });
   });
