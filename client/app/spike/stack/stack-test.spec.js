@@ -24,13 +24,13 @@ describe('stack', () => {
 
   it('push() leaves size === 1', () => {
     let stack = makeStack();
-    stack.push({});
+    stack.push();
     expect(stack.size()).to.equal(1);
   });
 
   it('push() -> pop() leaves size === 0', () => {
     let stack = makeStack();
-    stack.push({});
+    stack.push();
     stack.pop();
     expect(stack.size()).to.equal(0);
   });
