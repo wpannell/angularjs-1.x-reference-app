@@ -10,9 +10,7 @@ let primeFactorsOf = number => {
       n /= 2;
     }
 
-    if (n > 1) {
-      factors.push(n);
-    }
+    if (n > 1) factors.push(n);
   }
   return factors;
 };
