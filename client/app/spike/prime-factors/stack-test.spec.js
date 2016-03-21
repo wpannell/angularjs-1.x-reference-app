@@ -3,10 +3,11 @@ import {expect} from 'chai';
 let primeFactorsOf = number => {
   let n = number;
   const factors = [];
+  let divisor = 2;
 
-  if (n > 1) {
-    for (; n % 2 === 0; n /= 2) factors.push(2);
-    for (; n % 3 === 0; n /= 3) factors.push(3);
+  while (n > 1) {
+    for (; n % divisor === 0; n /= divisor) factors.push(divisor);
+    divisor++;
   }
 
   if (n > 1) factors.push(n);
@@ -29,5 +30,5 @@ describe('prime factors', () => {
 
   expect(primeFactorsOf(8)).to.deep.equal([2, 2, 2]); // if -> while transformation
 
-  expect(primeFactorsOf(9)).to.deep.equal([3, 3]);
+  expect(primeFactorsOf(9)).to.deep.equal([3, 3]); // if -> while
 });
