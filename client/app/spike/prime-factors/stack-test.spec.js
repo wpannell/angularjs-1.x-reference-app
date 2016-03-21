@@ -2,7 +2,9 @@ import {expect} from 'chai';
 
 let primeFactorsOf = number => {
   const factors = [];
-  if (number > 1) factors.push(number);
+  if (number > 1) {
+    factors.push(number);
+  }
   return factors;
 };
 
