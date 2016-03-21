@@ -2,7 +2,7 @@ import {expect} from 'chai';
 
 let primeFactorsOf = number => {
   const factors = [];
-  if (number > 1) factors.push(2);
+  if (number > 1) factors.push(number);
   return factors;
 };
 
@@ -12,5 +12,5 @@ describe('prime factors', () => {
   expect(primeFactorsOf(2)).to.deep.equal([2]); //var —> constant transformation
                                                 //split flow transformation
 
-  expect(primeFactorsOf(3)).to.deep.equal([3]);
+  expect(primeFactorsOf(3)).to.deep.equal([3]); //constant —> var transformation
 });
