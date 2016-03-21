@@ -3,11 +3,9 @@ import {expect} from 'chai';
 let primeFactorsOf = number => {
   let n = number;
   const factors = [];
-  let divisor = 2;
 
-  while (n > 1) {
+  for (let divisor = 2; n > 1; divisor++) {
     for (; n % divisor === 0; n /= divisor) factors.push(divisor);
-    divisor++;
   }
 
   return factors;
