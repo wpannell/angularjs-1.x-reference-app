@@ -11,4 +11,6 @@ describe('prime factors', () => {
 
   expect(primeFactorsOf(2)).to.deep.equal([2]); //var —> constant transformation
                                                 //split flow transformation
+
+  expect(primeFactorsOf(3)).to.deep.equal([3]);
 });
