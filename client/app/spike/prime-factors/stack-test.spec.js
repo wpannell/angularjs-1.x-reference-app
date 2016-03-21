@@ -27,4 +27,6 @@ describe('prime factors', () => {
   expect(primeFactorsOf(7)).to.deep.equal([7]);
 
   expect(primeFactorsOf(8)).to.deep.equal([2, 2, 2]); // if -> while transformation
+
+  expect(primeFactorsOf(9)).to.deep.equal([3, 3]);
 });
