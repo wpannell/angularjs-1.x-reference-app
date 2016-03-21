@@ -5,7 +5,7 @@ let primeFactorsOf = number => {
   const factors = [];
 
   if (n > 1) {
-    if (n % 2 === 0) {
+    while (n % 2 === 0) {
       factors.push(2);
       n /= 2;
     }
@@ -29,5 +29,5 @@ describe('prime factors', () => {
   expect(primeFactorsOf(6)).to.deep.equal([2, 3]);
   expect(primeFactorsOf(7)).to.deep.equal([7]);
 
-  expect(primeFactorsOf(8)).to.deep.equal([2, 2, 2]);
+  expect(primeFactorsOf(8)).to.deep.equal([2, 2, 2]); // if -> while transformation
 });
