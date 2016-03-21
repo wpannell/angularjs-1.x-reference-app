@@ -10,7 +10,6 @@ let primeFactorsOf = number => {
     divisor++;
   }
 
-  if (n > 1) factors.push(n);
   return factors;
 };
 
