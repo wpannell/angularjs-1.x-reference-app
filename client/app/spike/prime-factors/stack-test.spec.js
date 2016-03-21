@@ -5,9 +5,7 @@ let primeFactorsOf = number => {
   const factors = [];
 
   if (n > 1) {
-    for (; n % 2 === 0; n /= 2) {
-      factors.push(2);
-    }
+    for (; n % 2 === 0; n /= 2) factors.push(2);
   }
 
   if (n > 1) factors.push(n);
