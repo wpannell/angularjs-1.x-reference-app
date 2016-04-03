@@ -6,10 +6,10 @@
   "scripts": {
     "start": "node server",
     "dev": "gulp",
+    "dev-server": "json-server db.json",
     "dist": "gulp dist",
     "lint": "gulp lint",
     "test": "karma start karma.conf.dev.js",
-    "test-server": "json-server db.json",
     "test:remote": "mkdir -p generated && node_modules/karma/bin/karma start"
   },
   "engines": {
