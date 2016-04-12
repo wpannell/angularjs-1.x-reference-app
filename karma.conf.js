@@ -18,9 +18,6 @@ module.exports = function(config) {
     }
   };
 
-  process.env.SAUCE_USERNAME = 'wilpannell';
-  process.env.SAUCE_ACCESS_KEY = '3bb03f9a-f6a7-46ad-9c22-f13e76ef7433';
-
   config.set({
     preprocessors: {
       'spec.bundle.js': ['webpack', 'sourcemap']
