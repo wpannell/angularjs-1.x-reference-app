@@ -18,6 +18,9 @@ module.exports = function(config) {
     }
   };
 
+  console.log(process.env.SAUCE_USERNAME);
+  console.log(process.env.SAUCE_ACCESS_KEY);
+
   config.set({
     preprocessors: {
       'spec.bundle.js': ['webpack', 'sourcemap']
