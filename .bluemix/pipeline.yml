@@ -30,6 +30,13 @@ stages:
         job: distribution
     triggers:
       - type: stage
+    properties:
+      - name: SAUCE_USERNAME
+        value: ${SAUCE_USER}
+        type: text
+      - name: SAUCE_ACCESS_KEY
+        value: ${SAUCE_KEY}
+        type: text
     jobs:
       - name: lint
         type: tester
