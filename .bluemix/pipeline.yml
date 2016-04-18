@@ -98,6 +98,9 @@ stages:
           rm -rf ./node_modules.bak
           rm -rf .git.bak
 
-          cf push "${CF_APP}-dev-blue" -n "${CF_APP}-dev"
-          cf delete "${CF_APP}-dev-green" --f
-          cf rename "${CF_APP}-dev-blue" "${CF_APP}-dev-green"
+          cf add-plugin-repo CF-Community http://plugins.cloudfoundry.org
+          cf install-plugin blue-green-deploy -r CF-Community <<< y
+          cf bgd "${CF_APP}"-dev
+
+          cf create-route "${CF_SPACE}" mybluemix.net -n "${CF_APP}"-dev
+          cf map-route "${CF_APP}"-dev mybluemix.net -n "${CF_APP}"-dev
