@@ -1,10 +1,29 @@
-# Bangalore-gbs-bootcamp
+# IBM Bluemix Garage Bootcamp
 
 ####[configuration](https://github.com/wpannell/angularjs-1.x-reference-app/wiki/configuration)
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/wpannell/angularjs-1.x-reference-app.git)
 
 # angular.js-1.x-reference-app
+
+## Getting Started##
+
+####Change your node version, clone the repo, install and run the tests:####
+
+````
+nvm use v4.2.4
+git clone git@github.com:wpannell/angularjs-1.x-reference-app.git app
+cd app
+npm install
+npm run lint
+npm test
+````
+
+####Start the dev server and follow instructions:####
+
+```
+npm run dev
+```
 
 ##The design supports:##
 
@@ -23,25 +42,6 @@
 * deploying a configurable gauge component; and
 
 * local, component-specific styles.
-
-## Getting Started##
-
-####Change your node version, clone the repo, install and run the tests:####
-
-```
-nvm use v4.2.4
-git clone git@github.com:wpannell/angularjs-1.x-reference-app.git app
-cd app
-npm install
-npm run lint
-npm test
-```
-
-####Start the dev server and follow instructions:####
-
-```
-npm run dev
-```
 
 ## Architecture##
 
