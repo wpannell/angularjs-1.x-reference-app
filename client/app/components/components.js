@@ -1,6 +1,7 @@
 import angular from 'angular';
-import {tabs} from './tabs/tabs';
+
+import {browse} from './browse/browse';
 
 export const components = angular.module('components', [
-  tabs.name
+  browse.name
 ]);
