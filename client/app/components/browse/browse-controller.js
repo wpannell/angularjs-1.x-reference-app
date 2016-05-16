@@ -3,8 +3,8 @@ function BrowseController(browseService) {
   browseVm.total = 0;
   browseVm.errorMessage = '';
 
-  browseVm.updateTotal = (count) => {
-    browseVm.total = count;
+  browseVm.updateTotal = (ordersList) => {
+    browseVm.total = ordersList.length;
   };
 
   browseVm.updateErrorMessage = (errorMessage) => {
@@ -14,6 +14,8 @@ function BrowseController(browseService) {
   browseVm.fetch = () => {
     browseService.fetch(browseVm.updateTotal, browseVm.updateErrorMessage);
   };
+
+  browseVm.fetch();
 }
 
 BrowseController.$inject = ['browseService'];

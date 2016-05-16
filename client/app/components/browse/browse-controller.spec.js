@@ -8,6 +8,7 @@ describe('browse controller', () => {
 
   beforeEach( () => {
     mockService = {};
+    mockService.fetch = () => {};
     controller = new BrowseController(mockService);
   });
 
@@ -38,8 +39,11 @@ describe('browse controller', () => {
   });
 
   it('updates the total', () => {
-    let fakeCount = 2;
-    controller.updateTotal(fakeCount);
+    let fakeOrdersList = [
+      {order:1},
+      {order:2}
+    ];
+    controller.updateTotal(fakeOrdersList);
     expect(controller.total).to.equal(2);
   });
 
