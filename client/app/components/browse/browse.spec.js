@@ -34,7 +34,7 @@ describe('orders grid', () => {
 
     it('a total', () => {
       $scope.$apply();
-      expect($(element).find('h1').text()).to.contain('86');
+      expect($(element).find('h1').text()).to.contain('0');
     });
   });
 });

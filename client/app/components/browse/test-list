@@ -6,5 +6,10 @@ controller -
   √ initialize error message
   √ call service successfully
   √ call service when it fails
-  - update total
-  update error message
+  √ update total
+  √ update error message
+
+service -
+  √ create success handler
+  √ create failure handler
+
