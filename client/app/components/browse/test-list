@@ -1,0 +1,10 @@
+browse -
+  show total orders
+
+controller -
+  √ initialize total
+  √ initialize error message
+  √ call service successfully
+  √ call service when it fails
+  - update total
+  update error message

@@ -8,6 +8,8 @@ import {browse} from './browse';
 describe('orders grid', () => {
   let $state;
   let $scope;
+  let element;
+  let $ = window.$;
 
   let buildTemplate = () => {
     return angular.element('<browse></browse>');
@@ -19,7 +21,7 @@ describe('orders grid', () => {
   beforeEach(angular.mock.inject( ($rootScope, $compile, _$state_) => {
     $scope = $rootScope.$new();
     $state = _$state_;
-    $compile(buildTemplate())($scope);
+    element = $compile(buildTemplate())($scope);
     $scope.$digest();
   }));
 
@@ -28,6 +30,11 @@ describe('orders grid', () => {
       $state.go('browse');
       $scope.$apply();
       expect($state.current.url).to.equal('/browse');
+    });
+
+    it('a total', () => {
+      $scope.$apply();
+      expect($(element).find('h1').text()).to.contain('86');
     });
   });
 });
