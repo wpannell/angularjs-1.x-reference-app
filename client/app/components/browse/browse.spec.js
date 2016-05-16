@@ -27,7 +27,6 @@ describe('orders grid', () => {
     it('a url called /browse', () => {
       $state.go('browse');
       $scope.$apply();
-      console.log($state.current.url);
       expect($state.current.url).to.equal('/browse');
     });
   });
