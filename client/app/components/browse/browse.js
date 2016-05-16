@@ -7,11 +7,14 @@ import ngMaterial from 'angular-material';
 
 import {browseDirective} from './browse-directive';
 
+import {browseServices} from './browse-services-module';
+
 export const browse = angular.module('browse', [
   uiRouter,
   ngAnimate,
   ngAria,
-  ngMaterial
+  ngMaterial,
+  browseServices
 ])
 
 .config( ($stateProvider, $urlRouterProvider) => {
