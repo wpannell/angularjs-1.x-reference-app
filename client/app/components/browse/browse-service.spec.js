@@ -12,6 +12,10 @@ describe('browse service', () => {
     service = browseService;
   }));
 
+  afterEach( () => {
+    $httpBackend.verifyNoOutstandingExpectation();
+  });
+
   it('register success handler', (done) => {
     $httpBackend.expectGET('http://localhost:3000/0').respond(200, 'asdf');
     let success = (data, status) => {
@@ -20,7 +24,7 @@ describe('browse service', () => {
       done();
     };
 
-    service.get(success, () => {});
+    service.fetch(success, () => {});
     $httpBackend.flush();
   });
 
@@ -32,9 +36,7 @@ describe('browse service', () => {
       done();
     };
 
-    service.get(() => {}, failure);
+    service.fetch(() => {}, failure);
     $httpBackend.flush();
-
-
   });
 });
