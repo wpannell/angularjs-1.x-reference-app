@@ -1,30 +1,14 @@
 import {describe, expect, beforeEach, afterEach, it} from '../../mocha-helper';
 
-function GridController(browseService) {
-  let browseVm = this;
-  browseVm.total = 0;
-  browseVm.errorMessage = '';
+import {BrowseController} from './browse-controller';
 
-  browseVm.updateTotal = (count) => {
-    browseVm.total = count;
-  };
-
-  browseVm.updateErrorMessage = (errorMessage) => {
-    browseVm.errorMessage = errorMessage;
-  };
-
-  browseVm.fetch = () => {
-    browseService.fetch(browseVm.updateTotal, browseVm.updateErrorMessage);
-  };
-}
-
-describe.only('grid controller', () => {
+describe('browse controller', () => {
   let controller;
   let mockService;
 
   beforeEach( () => {
     mockService = {};
-    controller = new GridController(mockService);
+    controller = new BrowseController(mockService);
   });
 
   it('initializes the total', () => {
