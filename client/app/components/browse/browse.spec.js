@@ -6,6 +6,7 @@ import {describe, expect, beforeEach, afterEach, it} from '../../mocha-helper';
 import {browse} from './browse';
 
 describe('orders grid', () => {
+  let $httpBackend;
   let $state;
   let $scope;
   let element;
@@ -18,7 +19,12 @@ describe('orders grid', () => {
   beforeEach(window.module('ui.router'));
   beforeEach(window.module(browse.name));
 
-  beforeEach(angular.mock.inject( ($rootScope, $compile, _$state_) => {
+  beforeEach(angular.mock.inject( ($rootScope, $compile, _$state_, _$httpBackend_) => {
+    $httpBackend = _$httpBackend_;
+    $httpBackend.expectGET('http://localhost:3000/0').respond(200, [
+      {order:1},
+      {order:2}]);
+
     $scope = $rootScope.$new();
     $state = _$state_;
     element = $compile(buildTemplate())($scope);
