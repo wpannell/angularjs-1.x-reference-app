@@ -39,11 +39,13 @@ describe('browse controller', () => {
   });
 
   it('updates the total', () => {
-    let fakeOrdersList = [
-      {order:1},
-      {order:2}
-    ];
-    controller.updateTotal(fakeOrdersList);
+    let fakeOrderList = {
+      'orders': [
+        {'orderId': 1300070008},
+        {'orderId': 1300070009}
+      ]
+    };
+    controller.updateTotal(fakeOrderList);
     expect(controller.total).to.equal(2);
   });
 

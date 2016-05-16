@@ -3,8 +3,8 @@ function BrowseController(browseService) {
   browseVm.total = 0;
   browseVm.errorMessage = '';
 
-  browseVm.updateTotal = (ordersList) => {
-    browseVm.total = ordersList.length;
+  browseVm.updateTotal = (orderList) => {
+    browseVm.total = orderList.orders.length;
   };
 
   browseVm.updateErrorMessage = (errorMessage) => {
