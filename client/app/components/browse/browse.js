@@ -14,7 +14,7 @@ export const browse = angular.module('browse', [
   ngAnimate,
   ngAria,
   ngMaterial,
-  browseServices
+  browseServices.name
 ])
 
 .config( ($stateProvider, $urlRouterProvider) => {
