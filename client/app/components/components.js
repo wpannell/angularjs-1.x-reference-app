@@ -1,7 +1,7 @@
 import angular from 'angular';
 
-import {browse} from './browse/browse';
+import {ordersContainer} from './orders-container/orders-container';
 
 export const components = angular.module('components', [
-  browse.name
+  ordersContainer.name
 ]);

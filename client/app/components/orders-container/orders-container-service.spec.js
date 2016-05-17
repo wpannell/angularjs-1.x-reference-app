@@ -1,15 +1,15 @@
 import angular from 'angular';
 import {describe, expect, beforeEach, afterEach, it} from '../../mocha-helper';
-import {browseServices} from './browse-services-module';
+import {ordersContainerServices} from './orders-container-services-module';
 
-describe('browse service', () => {
+describe('ordersContainer service', () => {
   let $httpBackend;
   let service;
 
-  beforeEach(angular.mock.module(browseServices.name));
-  beforeEach(angular.mock.inject((_$httpBackend_, browseService) => {
+  beforeEach(angular.mock.module(ordersContainerServices.name));
+  beforeEach(angular.mock.inject((_$httpBackend_, ordersContainerService) => {
     $httpBackend = _$httpBackend_;
-    service = browseService;
+    service = ordersContainerService;
   }));
 
   afterEach( () => {

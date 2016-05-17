@@ -47,7 +47,7 @@ var GOECtrl = GOEApp.controller('GOECtrl',
 
 				$rootScope.$on('$stateChangeSuccess',
 					function(event, toState, toParams, fromState, fromParams){
-						if(fromState.name == 'browse' || fromState.name == 'inventory')
+						if(fromState.name == 'ordersContainer' || fromState.name == 'inventory')
 							$rootScope.fromState = fromState.name;
 					});
 
@@ -97,7 +97,7 @@ GOEApp.config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) 
 		.state('browse', {
 			controller: 'BrowseCtrl',
 			templateUrl: './controllers/browseCtrl/Browse.html' + '?' + Date.now(),
-			url: '/browse'
+			url: '/ordersContainer'
 		})
 		.state('locate', {
 			controller: 'LocateCtrl',

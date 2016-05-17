@@ -1,6 +1,4 @@
-
-export const browseService = ($http) => {
-
+export const ordersContainerService = ($http) => {
   const fetch = (success, failure) => {
     $http.get('http://localhost:3000/0')
         .success(success)
@@ -12,4 +10,4 @@ export const browseService = ($http) => {
   };
 };
 
-browseService.$inject = ['$http'];
+ordersContainerService.$inject = ['$http'];

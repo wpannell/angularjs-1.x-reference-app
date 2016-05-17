@@ -1,15 +1,15 @@
 import {describe, expect, beforeEach, it} from '../../mocha-helper';
 
-import {BrowseController} from './browse-controller';
+import {OrdersContainerController} from './orders-container-controller';
 
-describe('browse controller', () => {
+describe('ordersContainer controller', () => {
   let controller;
   let mockService;
 
   beforeEach(() => {
     mockService = {};
     mockService.fetch = () => {};
-    controller = new BrowseController(mockService);
+    controller = new OrdersContainerController(mockService);
   });
 
   it('initializes the total', () => {
