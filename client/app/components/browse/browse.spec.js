@@ -3,7 +3,7 @@ import angular from 'angular';
 import {describe, expect, beforeEach, it} from '../../mocha-helper';
 import {browse} from './browse';
 
-describe('orders grid', () => {
+describe('browse component', () => {
   let $state;
   let $scope;
   let element;
