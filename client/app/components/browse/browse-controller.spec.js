@@ -1,4 +1,4 @@
-import {describe, expect, beforeEach, afterEach, it} from '../../mocha-helper';
+import {describe, expect, beforeEach, it} from '../../mocha-helper';
 
 import {BrowseController} from './browse-controller';
 
@@ -6,7 +6,7 @@ describe('browse controller', () => {
   let controller;
   let mockService;
 
-  beforeEach( () => {
+  beforeEach(() => {
     mockService = {};
     mockService.fetch = () => {};
     controller = new BrowseController(mockService);

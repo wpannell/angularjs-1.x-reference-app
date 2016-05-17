@@ -1,8 +1,6 @@
 import 'script!jquery/dist/jquery';
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-
-import {describe, expect, beforeEach, afterEach, it} from '../../mocha-helper';
+import {describe, expect, beforeEach, it} from '../../mocha-helper';
 import {browse} from './browse';
 
 describe('orders grid', () => {
