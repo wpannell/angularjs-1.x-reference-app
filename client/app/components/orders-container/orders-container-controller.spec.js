@@ -29,7 +29,7 @@ describe('ordersContainer controller', () => {
     controller.fetch();
   });
 
-  it('call the failing service', (done) => {
+  it('calls the failing service', (done) => {
     mockService.fetch = (success, failure) => {
       expect(failure).to.equal(controller.updateErrorMessage);
       done();
