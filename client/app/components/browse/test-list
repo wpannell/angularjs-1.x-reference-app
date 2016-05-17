@@ -1,5 +1,5 @@
 browse -
-  show total orders
+  √ show total orders
 
 controller -
   √ initialize total

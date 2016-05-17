@@ -40,18 +40,14 @@ describe('browse controller', () => {
 
   it('updates the total', () => {
     let fakeOrderList = {
-      'orders': [
-        {'orderId': 1300070008},
-        {'orderId': 1300070009}
-      ]
+      'orders': [{'orderId': 1300070008}, {'orderId': 1300070009}]
     };
     controller.updateTotal(fakeOrderList);
     expect(controller.total).to.equal(2);
   });
 
   it('updates the error message', () => {
-    let fakeErrorMessage = "fail";
-    controller.updateErrorMessage(fakeErrorMessage);
+    controller.updateErrorMessage('fail');
     expect(controller.errorMessage).to.equal('fail');
   });
 });
