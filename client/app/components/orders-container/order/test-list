@@ -1,12 +1,9 @@
-<order order="order"></order>
-
 √ created an order component
-show a value for order id
+√ show a value for order id
+√ show a label and value for vehicle line
 
-accept an order object
 hide the nested details of the order object
 
-show a label and value for vehicle line
 show a label and value for model year
 show a label and value for model
 show a label and value for paint

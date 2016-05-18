@@ -1,5 +1,6 @@
 // import './order.styl';
 import template from './order.html';
+import {OrderController as controller} from './order-controller';
 
 export const orderDirective = ()=> {
   return {
@@ -8,6 +9,8 @@ export const orderDirective = ()=> {
     replace: true,
     scope: {
       order: '='
-    }
+    },
+    controller,
+    controllerAs: 'orderVm'
   };
 };

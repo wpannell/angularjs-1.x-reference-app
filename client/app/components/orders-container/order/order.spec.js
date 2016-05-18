@@ -22,16 +22,19 @@ describe('order component', () => {
     $scope = $rootScope.$new();
     element = $compile(buildTemplate())($scope);
     $scope.$digest();
-  }));
-
-  it('order component is an element', () => {
-    expect(element).to.not.equal(null);
-    expect(element).to.not.equal(undefined);
-  });
-
-  it('should show a value for order id', () => {
     $scope.order = fakeOrder;
     $scope.$apply();
+  }));
+
+  it('is an element', () => {
+    expect(element).to.exist;
+  });
+
+  it('contains a value for order id', () => {
     expect($(element).find('[rel=orderId]').text()).to.contain('1');
+  });
+
+  it('contains a label for vehicle line', () => {
+    expect($(element).find('[rel=vlLabel]').text()).to.contain('Vehicle Line:');
   });
 });
