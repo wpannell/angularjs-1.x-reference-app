@@ -1,3 +1,5 @@
+accept an order object
+hide the nested details of the order object
 show a value for order id
 show a label and value for vehicle line
 show a label and value for model year
