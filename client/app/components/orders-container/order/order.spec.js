@@ -103,4 +103,9 @@ describe('order component', () => {
     expect($(element).find('[rel=previewImage]').attr('src')).to.exist;
   });
 
+  it('contains a view details button', () => {
+    expect(findTextByRel('detailsButton')).to.contain('Preview');
+  });
+
+
 });
