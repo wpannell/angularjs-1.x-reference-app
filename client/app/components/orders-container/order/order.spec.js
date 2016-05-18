@@ -7,9 +7,17 @@ describe('order component', () => {
   let $scope;
   let element;
   let $ = window.$;
+  function findTextByRel(key) {
+    return $(element).find('[rel=' + key + ']').text();
+  }
 
   let fakeOrder = {
-    orderId: 1
+    orderId: 1,
+    vehicleSpecification: {
+      vehicleLine: {
+        Description: 'MKZ'
+      }
+    }
   };
 
   let buildTemplate = () => {
@@ -31,10 +39,14 @@ describe('order component', () => {
   });
 
   it('contains a value for order id', () => {
-    expect($(element).find('[rel=orderId]').text()).to.contain('1');
+    expect(findTextByRel('orderId')).to.contain('1');
   });
 
   it('contains a label for vehicle line', () => {
-    expect($(element).find('[rel=vlLabel]').text()).to.contain('Vehicle Line:');
+    expect(findTextByRel('vlLabel')).to.contain('Vehicle Line:');
+  });
+
+  it('contains a value for vehicle line', () => {
+    expect(findTextByRel('vlValue')).to.contain('MKZ');
   });
 });

@@ -1,14 +1,19 @@
 √ created an order component
 √ show a value for order id
-√ show a label and value for vehicle line
+√ show a label for vehicle line
+√ show value for vehicle line
 
-hide the nested details of the order object
-
-show a label and value for model year
-show a label and value for model
-show a label and value for paint
-show a label and value for trim
+show a label for model year
+show value for model year
+show a label for model
+show value for model
+show a label for paint
+show value for paint
+show a label for trim
+show value for trim
 show a image of a car
 show a view details button
+
+hide the nested details of the order object
 
 
