@@ -7,9 +7,6 @@ describe('order component', () => {
   let $scope;
   let element;
   let $ = window.$;
-  function findTextByRel(key) {
-    return $(element).find('[rel=' + key + ']').text();
-  }
 
   let fakeOrder = {
     orderId: 1,
@@ -34,6 +31,14 @@ describe('order component', () => {
   let buildTemplate = () => {
     return angular.element('<order order="order"></order>');
   };
+
+  function findElementByRel(key) {
+    return $(element).find('[rel=' + key + ']');
+  }
+
+  function findTextByRel(key) {
+    return findElementByRel(key).text();
+  }
 
   beforeEach(window.module(order.name));
 
@@ -100,12 +105,10 @@ describe('order component', () => {
   it('contains a preview image when the order has an image URL', () => {
     fakeOrder.imageUrl = 'abc123';
     $scope.$apply();
-    expect($(element).find('[rel=previewImage]').attr('src')).to.exist;
+    expect(findElementByRel('previewImage').attr('src')).to.exist;
   });
 
   it('contains a view details button', () => {
     expect(findTextByRel('detailsButton')).to.contain('Preview');
   });
-
-
 });
