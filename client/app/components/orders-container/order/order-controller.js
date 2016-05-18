@@ -7,6 +7,9 @@ function OrderController() {
     paint: 'Paint',
     trim: 'Trim'
   };
+  orderVm.buildImageUrl = () => {
+    return null;
+  };
 }
 
 export {OrderController};
