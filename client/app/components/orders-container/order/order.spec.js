@@ -93,4 +93,8 @@ describe('order component', () => {
     expect(findTextByRel('trimValue')).to.contain('Cappucino Leather');
   });
 
+  it('contains a placeholder image', () => {
+    expect(findTextByRel('previewImage')).to.contain('Order Image Placeholder');
+  });
+
 });

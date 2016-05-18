@@ -11,7 +11,9 @@
 √ show value for paint
 √ show a label for trim
 √ show value for trim
-show a image of a car
+
+√ show an image placeholder
+show an image of a car
 show a view details button
 
 hide the nested details of the order object
