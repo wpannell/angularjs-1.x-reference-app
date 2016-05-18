@@ -16,6 +16,15 @@ describe('order component', () => {
     vehicleSpecification: {
       vehicleLine: {
         Description: 'MKZ'
+      },
+      modelYear: {
+        Description: '2016'
+      },
+      mpv: 'L2G FWD, 120A',
+      features: {
+        colorAndTrim: [{
+          Description: 'Platinum Dune'
+        }]
       }
     }
   };
@@ -49,4 +58,29 @@ describe('order component', () => {
   it('contains a value for vehicle line', () => {
     expect(findTextByRel('vlValue')).to.contain('MKZ');
   });
+
+  it('contains a label for model year', () => {
+    expect(findTextByRel('myLabel')).to.contain('Model Year:');
+  });
+
+  it('contains a value for model year', () => {
+    expect(findTextByRel('myValue')).to.contain('2016');
+  });
+
+  it('contains a label for model', () => {
+    expect(findTextByRel('modelLabel')).to.contain('Model:');
+  });
+
+  it('contains a value for model', () => {
+    expect(findTextByRel('modelValue')).to.contain('L2G FWD, 120A');
+  });
+
+  it('contains a label for paint', () => {
+    expect(findTextByRel('paintLabel')).to.contain('Paint:');
+  });
+
+  it('contains a value for model', () => {
+    expect(findTextByRel('paintValue')).to.contain('Platinum Dune');
+  });
+
 });

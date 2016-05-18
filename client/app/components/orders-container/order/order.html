@@ -9,20 +9,20 @@
         </div>
       </div>
       <div layout = "row" class = "order-data-row">
-        <div class = "order-data-label">{{browseVm.labels.modelYear}}:</div>
-        <div class = "order-data-value">
+        <div class = "order-data-label" rel="myLabel">{{orderVm.labels.modelYear}}:</div>
+        <div class = "order-data-value" rel="myValue">
           {{order.vehicleSpecification.modelYear.Description}}
         </div>
       </div>
       <div layout = "row" class = "order-data-row">
-        <div class = "order-data-label">{{browseVm.labels.mpv}}:</div>
-        <div class = "order-data-value">
+        <div class = "order-data-label" rel="modelLabel">{{orderVm.labels.mpv}}:</div>
+        <div class = "order-data-value" rel="modelValue">
           {{order.vehicleSpecification.mpv}}
         </div>
       </div>
       <div layout = "row" class = "order-data-row">
-        <div class = "order-data-label">{{browseVm.labels.paint}}:</div>
-        <div class = "order-data-value">
+        <div class = "order-data-label" rel="paintLabel">{{orderVm.labels.paint}}:</div>
+        <div class = "order-data-value" rel="paintValue">
           {{order.vehicleSpecification.features.colorAndTrim[0].Description}}
         </div>
       </div>

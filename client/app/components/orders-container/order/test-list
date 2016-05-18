@@ -3,12 +3,12 @@
 √ show a label for vehicle line
 √ show value for vehicle line
 
-show a label for model year
-show value for model year
-show a label for model
-show value for model
-show a label for paint
-show value for paint
+√ show a label for model year
+√ show value for model year
+√ show a label for model
+√ show value for model
+√ show a label for paint
+√ show value for paint
 show a label for trim
 show value for trim
 show a image of a car
