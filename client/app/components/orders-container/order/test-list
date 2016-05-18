@@ -1,3 +1,5 @@
+<order order="order"></order>
+
 accept an order object
 hide the nested details of the order object
 show a value for order id
