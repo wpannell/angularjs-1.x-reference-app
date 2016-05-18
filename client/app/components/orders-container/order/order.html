@@ -1,2 +1,52 @@
-<div><h1>hello mama</h1></div>
+<div>
+  <div layout = "row" layout-align = "space-between">
+    <div class = "order-data">
+      <div class = "locate-match-type" rel="orderId">{{order.orderId}}</div>
+      <div layout = "row" class = "order-data-row">
+        <div class = "order-data-label">{{browseVm.labels.vehicleLine}}:</div>
+        <div class = "order-data-value">
+          {{order.vehicleSpecification.vehicleLine.Description}}
+        </div>
+      </div>
+      <div layout = "row" class = "order-data-row">
+        <div class = "order-data-label">{{browseVm.labels.modelYear}}:</div>
+        <div class = "order-data-value">
+          {{order.vehicleSpecification.modelYear.Description}}
+        </div>
+      </div>
+      <div layout = "row" class = "order-data-row">
+        <div class = "order-data-label">{{browseVm.labels.mpv}}:</div>
+        <div class = "order-data-value">
+          {{order.vehicleSpecification.mpv}}
+        </div>
+      </div>
+      <div layout = "row" class = "order-data-row">
+        <div class = "order-data-label">{{browseVm.labels.paint}}:</div>
+        <div class = "order-data-value">
+          {{order.vehicleSpecification.features.colorAndTrim[0].Description}}
+        </div>
+      </div>
+      <div layout = "row" class = "order-data-row">
+        <div class = "order-data-label">{{browseVm.labels.trim}}:</div>
+        <div class = "order-data-value">
+          {{order.vehicleSpecification.features.colorAndTrim[1].Description}}
+        </div>
+      </div>
+    </div>
 
+    <div ng-if = "order.imageUrl == null" class = "vos-order-img-placeholder"
+         layout = "row" layout-align = "center center">
+      Order Image Placeholder
+    </div>
+    <div ng-if = "order.imageUrl != null" class = "vos-order-img"
+         layout = "column" layout-align = "center center">
+      <img ng-src = "{{order.imageUrl}}"/>
+      <div>(Image is a depiction of the vehicle)</div>
+    </div>
+  </div>
+  <div layout = "row" layout-align = "end" class = "locate-btn-container">
+    <button class = "k-button"
+            ng-click = "previewClicked(order.orderId)">Preview
+    </button>
+  </div>
+</div>

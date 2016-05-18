@@ -6,6 +6,8 @@ export const orderDirective = ()=> {
     template,
     restrict: 'E',
     replace: true,
-    scope: {}
+    scope: {
+      order: '='
+    }
   };
 };
