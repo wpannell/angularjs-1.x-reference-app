@@ -93,8 +93,14 @@ describe('order component', () => {
     expect(findTextByRel('trimValue')).to.contain('Cappucino Leather');
   });
 
-  it('contains a placeholder image', () => {
+  it('contains a placeholder image when no image is found', () => {
     expect(findTextByRel('previewImage')).to.contain('Order Image Placeholder');
+  });
+
+  it('contains a preview image when the order has an image URL', () => {
+    fakeOrder.imageUrl = 'abc123';
+    $scope.$apply();
+    expect($(element).find('[rel=previewImage]').attr('src')).to.exist;
   });
 
 });
