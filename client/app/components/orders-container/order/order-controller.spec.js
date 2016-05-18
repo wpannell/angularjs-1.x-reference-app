@@ -3,7 +3,8 @@ import {describe, expect, beforeEach, it} from '../../../mocha-helper';
 import {OrderController} from './order-controller';
 
 let fakeOrder = {
-  orderId: 1, vehicleSpecification: {
+  orderId: 1,
+  vehicleSpecification: {
     vehicleLine: {
       Description: 'MKZ', Code: 'CC9'
     }, modelYear: {
@@ -26,8 +27,21 @@ describe('order controller', () => {
   });
 
   it('Returns a null image url', () => {
-    controller.order = fakeOrder;
-    expect(controller.buildImageUrl()).to.equal(null);
+    controller.order = {
+      vehicleSpecification: {
+        vehicleLine: {Code: 'XXX'}
+      }
+    };
+    expect(controller.buildImageUrl()).to.be.falsy;
+  });
+
+  it('Returns a real image url', () => {
+    controller.order = {
+      vehicleSpecification: {
+        vehicleLine: {Code: 'CC9'}
+      }
+    };
+    expect(controller.buildImageUrl()).to.equal('./artifacts/redMKZ.png');
   });
 
 });

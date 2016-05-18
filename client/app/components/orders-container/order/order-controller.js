@@ -7,8 +7,19 @@ function OrderController() {
     paint: 'Paint',
     trim: 'Trim'
   };
+
   orderVm.buildImageUrl = () => {
-    return null;
+    let imageUrls = {
+      'CC9': './artifacts/redMKZ.png'
+    };
+
+    let vlCode;
+    let order = orderVm.order;
+    if (order.vehicleSpecification && order.vehicleSpecification.vehicleLine) {
+        vlCode = order.vehicleSpecification.vehicleLine.Code;
+    }
+
+    return imageUrls[vlCode];
   };
 }
 
