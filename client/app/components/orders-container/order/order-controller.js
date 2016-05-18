@@ -4,7 +4,8 @@ function OrderController() {
     vehicleLine: 'Vehicle Line',
     modelYear: 'Model Year',
     mpv: 'Model',
-    paint: 'Paint'
+    paint: 'Paint',
+    trim: 'Trim'
   };
 }
 

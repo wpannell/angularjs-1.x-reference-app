@@ -24,6 +24,8 @@ describe('order component', () => {
       features: {
         colorAndTrim: [{
           Description: 'Platinum Dune'
+        }, {
+          Description: 'Cappucino Leather'
         }]
       }
     }
@@ -81,6 +83,14 @@ describe('order component', () => {
 
   it('contains a value for model', () => {
     expect(findTextByRel('paintValue')).to.contain('Platinum Dune');
+  });
+
+  it('contains a label for trim', () => {
+    expect(findTextByRel('trimLabel')).to.contain('Trim:');
+  });
+
+  it('contains a value for trim', () => {
+    expect(findTextByRel('trimValue')).to.contain('Cappucino Leather');
   });
 
 });
