@@ -34,13 +34,9 @@
       </div>
     </div>
 
-    <div ng-if = "order.imageUrl == null" class = "vos-order-img-placeholder"
-         layout = "row" layout-align = "center center" rel="previewImage">
-      Order Image Placeholder
-    </div>
-    <div ng-if = "order.imageUrl != null" class = "vos-order-img"
+    <div class = "vos-order-img"
          layout = "column" layout-align = "center center">
-      <img ng-src = "{{order.imageUrl}}" rel="previewImage"/>
+      <img src = {{image}} rel="previewImage"/>
       <div>(Image is a depiction of the vehicle)</div>
     </div>
   </div>
