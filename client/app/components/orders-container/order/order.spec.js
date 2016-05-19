@@ -99,16 +99,13 @@ describe('order component', () => {
   });
 
   it('contains a placeholder image when no image is found', () => {
-    let fakeEmptyOrder = { vehicleSpecification: {vehicleLine: {}}};
-
-    $scope.order = fakeEmptyOrder;
+    $scope.order = { vehicleSpecification: {vehicleLine: {}}};
     $scope.$apply();
     expect($(element).find('img').attr('src')).to.equal('./artifacts/cat.png');
   });
 
-  it.only('contains a preview image when the order has an image URL', () => {
-    let fakeEmptyOrder = { vehicleSpecification: {vehicleLine: {Code: 'CC9'}}};
-    $scope.order = fakeEmptyOrder;
+  it('contains a preview image when the order has an image URL', () => {
+    $scope.order = { vehicleSpecification: {vehicleLine: {Code: 'CC9'}}};
     $scope.$apply();
     expect($(element).find('img').attr('src')).to.equal('./artifacts/redMKZ.png');
   });

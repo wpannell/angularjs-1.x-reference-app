@@ -19,5 +19,4 @@ export const orderLink = function orderLink(scope) {
   scope.$watch('order', function(newValue, oldValue) {
     scope.image = buildImageUrl(newValue);
   });
-
 };
