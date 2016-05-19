@@ -5,6 +5,6 @@ let afterEach = global.afterEach;
 let expect = global.expect;
 let it = global.it;
 
-export {describe, beforeEach, afterEach, expect, it};
+export {describe, beforeEach, afterEach, expect, it, chai};
 
 // √ = option-v ; • = option-8
