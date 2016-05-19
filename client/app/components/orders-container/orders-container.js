@@ -8,13 +8,15 @@ import ngMaterial from 'angular-material';
 import {ordersContainerDirective} from './orders-container-directive';
 
 import {ordersContainerServices} from './orders-container-services-module';
+import {order} from './order/order';
 
 export const ordersContainer = angular.module('ordersContainer', [
-  uiRouter,
-  ngAnimate,
-  ngAria,
-  ngMaterial,
-  ordersContainerServices.name
+    uiRouter,
+    ngAnimate,
+    ngAria,
+    ngMaterial,
+    ordersContainerServices.name,
+    order.name
 ])
 
 .config( ($stateProvider, $urlRouterProvider) => {

@@ -4,6 +4,7 @@ function OrdersContainerController(ordersContainerService) {
   ordersVm.errorMessage = '';
 
   ordersVm.updateTotal = (orderList) => {
+    ordersVm.orders = orderList.orders;
     ordersVm.total = orderList.orders.length;
   };
 

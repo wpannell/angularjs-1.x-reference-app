@@ -1,6 +1,6 @@
 orders-container (formerly known as browse) -
-  show total orders (at bottom)
-  show list of <order order="vm.order"> components
+√ show total orders (at bottom)
+√ show list of <order order="vm.order"> components
 
 controller -
   √ initialize total

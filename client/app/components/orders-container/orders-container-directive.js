@@ -9,6 +9,7 @@ export const ordersContainerDirective = ()=> {
     replace: true,
     scope: {},
     controller,
+    transclude: true,
     controllerAs: 'ordersVm'
   };
 };

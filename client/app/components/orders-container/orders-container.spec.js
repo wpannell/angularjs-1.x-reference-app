@@ -19,8 +19,47 @@ describe('ordersContainer component', () => {
   beforeEach(angular.mock.inject( ($rootScope, $compile, _$state_, $httpBackend) => {
     let fakeOrderList = {
       'orders': [
-        {'orderId': 1300070008},
-        {'orderId': 1300070009}
+        {
+          orderId: 1300070008,
+          vehicleSpecification: {
+            vehicleLine: {
+              Description: 'MKZ',
+              Code: 'CC9'
+            },
+            modelYear: {
+              Description: '2016'
+            },
+            mpv: 'L2G FWD, 120A',
+            features: {
+              colorAndTrim: [{
+                Description: 'Platinum Dune'
+              }, {
+                Description: 'Cappucino Leather'
+              }]
+            }
+          }
+        },
+           {
+          orderId: 1300070009,
+          vehicleSpecification: {
+            vehicleLine: {
+              Description: 'MKZ',
+              Code: 'CC9'
+            },
+            modelYear: {
+              Description: '2016'
+            },
+            mpv: 'L2G FWD, 120A',
+            features: {
+              colorAndTrim: [{
+                Description: 'Platinum Dune'
+              }, {
+                Description: 'Cappucino Leather'
+              }]
+            }
+          }
+        },
+
       ]
     };
 
@@ -43,6 +82,11 @@ describe('ordersContainer component', () => {
     it('a total', () => {
       $scope.$apply();
       expect($(element).find('h1').text()).to.contain('2');
+    });
+
+    it('2 orders', () => {
+      $scope.$apply();
+      expect($(element).find('[rel=orderId]').length).to.equal(2);
     });
   });
 });
