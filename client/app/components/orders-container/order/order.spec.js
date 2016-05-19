@@ -12,7 +12,8 @@ describe('order component', () => {
     orderId: 1,
     vehicleSpecification: {
       vehicleLine: {
-        Description: 'MKZ'
+        Description: 'MKZ',
+        Code: 'CC9'
       },
       modelYear: {
         Description: '2016'
@@ -45,7 +46,6 @@ describe('order component', () => {
   beforeEach(angular.mock.inject( ($rootScope, $compile) => {
     $scope = $rootScope.$new();
     element = $compile(buildTemplate())($scope);
-    $scope.$digest();
     $scope.order = fakeOrder;
     $scope.$apply();
   }));
@@ -99,13 +99,18 @@ describe('order component', () => {
   });
 
   it('contains a placeholder image when no image is found', () => {
-    expect(findTextByRel('previewImage')).to.contain('Order Image Placeholder');
+    let fakeEmptyOrder = { vehicleSpecification: {vehicleLine: {}}};
+
+    $scope.order = fakeEmptyOrder;
+    $scope.$apply();
+    expect($(element).find('img').attr('src')).to.equal('./artifacts/cat.png');
   });
 
-  it('contains a preview image when the order has an image URL', () => {
-    fakeOrder.imageUrl = 'abc123';
+  it.only('contains a preview image when the order has an image URL', () => {
+    let fakeEmptyOrder = { vehicleSpecification: {vehicleLine: {Code: 'CC9'}}};
+    $scope.order = fakeEmptyOrder;
     $scope.$apply();
-    expect(findElementByRel('previewImage').attr('src')).to.exist;
+    expect($(element).find('img').attr('src')).to.equal('./artifacts/redMKZ.png');
   });
 
   it('contains a view details button', () => {
