@@ -1,7 +1,7 @@
 export const orderLink = function orderLink(scope) {
   let imageMap = {
-    'CC9': './artifacts/redMKZ.png',
-    'unfound': './artifacts/cat.png'
+    'CC9': 'img/redMKZ.png',
+    'unfound': 'img/kitty.jpg'
   };
 
   function buildImageUrl (order) {
@@ -13,7 +13,7 @@ export const orderLink = function orderLink(scope) {
 
       salesCode = order.vehicleSpecification.vehicleLine.Code;
     }
-    return imageMap[salesCode];
+    return imageMap[salesCode] || 'img/kitty.jpg';
   }
 
   scope.$watch('order', function(newValue, oldValue) {

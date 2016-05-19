@@ -101,13 +101,13 @@ describe('order component', () => {
   it('contains a placeholder image when no image is found', () => {
     $scope.order = { vehicleSpecification: {vehicleLine: {}}};
     $scope.$apply();
-    expect($(element).find('img').attr('src')).to.equal('./artifacts/cat.png');
+    expect($(element).find('img').attr('src')).to.equal('img/kitty.jpg');
   });
 
   it('contains a preview image when the order has an image URL', () => {
     $scope.order = { vehicleSpecification: {vehicleLine: {Code: 'CC9'}}};
     $scope.$apply();
-    expect($(element).find('img').attr('src')).to.equal('./artifacts/redMKZ.png');
+    expect($(element).find('img').attr('src')).to.equal('img/redMKZ.png');
   });
 
   it('contains a view details button', () => {
