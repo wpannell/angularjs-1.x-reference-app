@@ -1,4 +1,4 @@
-import {describe, expect, beforeEach, it} from '../../../mocha-helper';
+import {describe, expect, beforeEach, it} from '../../../test-helper';
 
 import {OrderController} from './order-controller';
 

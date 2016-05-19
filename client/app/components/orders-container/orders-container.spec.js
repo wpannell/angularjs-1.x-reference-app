@@ -1,6 +1,6 @@
 import 'script!jquery/dist/jquery';
 import angular from 'angular';
-import {describe, expect, beforeEach, it} from '../../mocha-helper';
+import {describe, expect, beforeEach, it} from '../../test-helper';
 import {ordersContainer} from './orders-container';
 
 describe('ordersContainer component', () => {

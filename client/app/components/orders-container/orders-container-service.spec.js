@@ -1,5 +1,5 @@
 import angular from 'angular';
-import {describe, expect, beforeEach, afterEach, it} from '../../mocha-helper';
+import {describe, expect, beforeEach, afterEach, it} from '../../test-helper';
 import {ordersContainerServices} from './orders-container-services-module';
 
 describe('ordersContainer service', () => {
