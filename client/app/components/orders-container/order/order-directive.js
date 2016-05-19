@@ -1,4 +1,4 @@
-// import './order.styl';
+import './order.styl';
 import template from './order.html';
 import {OrderController as controller} from './order-controller';
 import {orderLink} from './order-link';
