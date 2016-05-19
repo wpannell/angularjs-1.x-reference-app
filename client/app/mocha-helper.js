@@ -6,4 +6,4 @@ let it = global.it;
 
 export {describe, beforeEach, afterEach, expect, it};
 
-// √
+// √ = option-v ; • = option-8

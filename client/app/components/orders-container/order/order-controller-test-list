@@ -1,9 +1,9 @@
-√ Returns a null url
-√ Returns a real url
-Returns a model year
-Returns an mpv
-Returns a color
-Returns a trim
-Returns a vehicle line
+√ build a null url
+√ build a real url
+• build a model year
+• build an mpv
+• build a color
+• Returns a trim
+• Returns a vehicle line
 
 
