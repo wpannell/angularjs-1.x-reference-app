@@ -5,7 +5,7 @@ import ngAnimate from 'angular-animate';
 import ngAria from 'angular-aria';
 import ngMaterial from 'angular-material';
 
-import {ordersContainerDirective} from './orders-container-directive';
+import {ordersContainerComponent} from './orders-container-component';
 
 import {ordersContainerServices} from './orders-container-services-module';
 import {order} from './order/order';
@@ -30,4 +30,4 @@ export const ordersContainer = angular.module('ordersContainer', [
     template: '<orders-container></orders-container>'
   });
 })
-.directive('ordersContainer', ordersContainerDirective);
+.component('ordersContainer', ordersContainerComponent);
