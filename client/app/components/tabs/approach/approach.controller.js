@@ -1,12 +1,6 @@
-let ApproachController = ($scope, $http) => {
-  $http.get('/db.json')
-      .success(response => {
-        console.log(response);
-      })
-      .error(console.log('error'));
-};
+let ApproachController = () => {};
 
-ApproachController.$inject = ['$scope', '$http'];
+ApproachController.$inject = ['$scope'];
 
 export {ApproachController};
 
