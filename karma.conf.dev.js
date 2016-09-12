@@ -2,7 +2,7 @@ module.exports = function(config) {
   config.set({
     autoWatchBatchDelay: 100,
     basePath: '',
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'should'],
     files: [
       {pattern: 'spec.bundle.js', watched: false}
     ],
@@ -21,9 +21,10 @@ module.exports = function(config) {
           {test: /\.css/, loader: 'style!css'},
           {
             test: /\.js$/,
-            loader: 'babel?stage=1',
+            loader: 'babel',
             exclude: [/client\/lib/, /node_modules/]
-          }
+          },
+          { test: /\.json$/, loader: 'json-loader' }
         ]
       },
 

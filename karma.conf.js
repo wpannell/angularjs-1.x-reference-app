@@ -43,9 +43,10 @@ module.exports = function(config) {
           {test: /\.css/, loader: 'style!css'},
           {
             test: /\.js$/,
-            loader: 'babel?stage=1',
+            loader: 'babel',
             exclude: [/client\/lib/, /node_modules/]
-          }
+          },
+          { test: /\.json$/, loader: 'json-loader' }
         ]
       },
 
@@ -70,7 +71,7 @@ module.exports = function(config) {
     colors: true,
     customLaunchers: customLaunchers,
     exclude: [],
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'should'],
     logLevel: config.LOG_DEBUG,
     port: 9876,
     reporters: ['mocha', 'junit', 'saucelabs'],

@@ -3,13 +3,6 @@ import {makeMovieFrom} from './makeMovieFrom';
 import {makeRentalFrom} from './makeRentalFrom';
 import {REGULAR, NEW_RELEASE, CHILDRENS} from './movie-codes';
 
-import chai from 'chai';
-
-let describe = global.describe;
-let beforeEach = global.beforeEach;
-let it = global.it;
-let expect = chai.expect;
-
 describe('martin fowler\'s movie refactoring example', () => {
   const DAYS_RENTED_IS_1 = 1;
   const DAYS_RENTED_IS_2 = 2;
@@ -71,6 +64,6 @@ describe('martin fowler\'s movie refactoring example', () => {
     customer.addRental(makeRentalFrom(newRelease2, DAYS_RENTED_IS_2));
     customer.addRental(makeRentalFrom(newRelease3, DAYS_RENTED_IS_3));
 
-    expect(expected).to.equal(customer.statement());
+    (expected).should.equal(customer.statement());
   });
 });

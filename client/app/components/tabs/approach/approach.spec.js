@@ -1,9 +1,6 @@
 import 'script!jquery/dist/jquery';
 import angular from 'angular';
 
-import chai from 'chai';
-let expect = chai.expect;
-
 import {approach} from './approach';
 
 describe('Approach page', () => {
@@ -25,46 +22,46 @@ describe('Approach page', () => {
 
   describe('should have', () => {
     it('a title', () => {
-      expect($(element).find('.approach-title').text()).to.equal('Approach');
+      ($(element).find('.approach-title').text()).should.equal('Approach');
     });
 
     describe('and a description which contains', () => {
       it('some lorem ipsumm', () => {
-        expect($(element).find('.description').text()).to.contain(
+        ($(element).find('.description').text()).should.containEql(
             'Integer turpis erat, porttitor vitae mi faucibus,');
       });
 
       it('some more lorem ipsumm', () => {
-        expect($(element).find('.description').text()).to.contain(
+        ($(element).find('.description').text()).should.containEql(
             'laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget');
       });
 
       it('some more lorem ipsumm', () => {
-        expect($(element).find('.description').text()).to.contain(
+        ($(element).find('.description').text()).should.containEql(
             'congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at');
       });
 
       it('and some more lorem ipsumm', () => {
-        expect($(element).find('.description').text()).to.contain(
+        ($(element).find('.description').text()).should.containEql(
             'posuere mi.');
       });
     });
 
     describe('a region of blocks which have', () => {
       it('a Problem block', () => {
-        expect($(element).find('.problem').text()).to.equal('ProblemStatement');
+        ($(element).find('.problem').text()).should.equal('ProblemStatement');
       });
 
       it('a Data Approach block', () => {
-        expect($(element).find('.data').text()).to.equal('DataApproach');
+        ($(element).find('.data').text()).should.equal('DataApproach');
       });
 
       it('an Impacted Areas block', () => {
-        expect($(element).find('.impacted').text()).to.equal('ImpactedAreas');
+        ($(element).find('.impacted').text()).should.equal('ImpactedAreas');
       });
 
       it('a Disclosure Approach block', () => {
-        expect($(element).find('.disclosure').text()).to.equal('DisclosureReports');
+        ($(element).find('.disclosure').text()).should.equal('DisclosureReports');
       });
     });
   });

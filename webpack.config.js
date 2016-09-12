@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
   output: {
     filename: 'bundle.js'
@@ -10,7 +12,8 @@ module.exports = {
       { test: /\.html$/, loader: 'raw' },
       { test: /\.styl$/, loader: 'style!css!stylus' },
       { test: /\.css/, loader: 'style!css' },
-      { test: /\.js$/, loader: 'babel?stage=1', exclude: [/client\/lib/, /node_modules/, /\.spec\.js/] }
+      { test: /\.js$/, loader: 'babel', exclude: [/client\/lib/, /node_modules/, /\.spec\.js/]},
+      { test: /\.json$/, loader: 'json-loader' }
     ]
   },
 
