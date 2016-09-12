@@ -1,22 +1,21 @@
 var browser = require('browser-sync');
 var del = require('del');
 var gulp = require('gulp');
-var eslint = require('gulp-eslint');
 var listGulpTasks = require('gulp-task-listing');
+var nodemon = require('gulp-nodemon');
 var sync = require('run-sequence');
 var todo = require('gulp-todoist');
 var webpack = require('webpack-stream');
 
 var paths = {
-  app: ['client/app/**/*.{js,styl,html}', 'client/styles/**/*.styl'],
+  app: ['client/app/**/*.{js,styl,html,json}', 'client/styles/**/*.styl'],
   dest: 'dist',
   entry: 'client/app/app.js',
   html: ['client/index.html', 'client/app/**/*.html'],
   js: 'client/app/**/*!(.spec.js).js',
   styl: ['client/app/**/*.styl', 'client/style/**/*.styl'],
-  toCopy: ['client/index.html', 'client/**/*.{jpg,png,ico}']
+  toCopy: ['client/index.html', 'client/**/*.{jpg,png,ico,svg}', 'client/db.json']
 };
-
 
 gulp.task('build', ['todo'], function() {
   return gulp.src(paths.entry)
@@ -33,13 +32,6 @@ gulp.task('copy', function() {
     .pipe(gulp.dest(paths.dest));
 });
 
-gulp.task('lint', function() {
-  return gulp.src('client/app/**/*.js')
-    .pipe(eslint({'useEslintrc': true}))
-    .pipe(eslint.formatEach('stylish', process.stderr))
-    .pipe( eslint.failAfterError() );
-});
-
 gulp.task('ls', listGulpTasks);
 
 gulp.task('serve', function() {
@@ -53,6 +45,43 @@ gulp.task('serve', function() {
   });
 });
 
+gulp.task('serve-proxy', function() {
+  browser.init({
+    files: ['dist/**/*.*'],
+    proxy: 'http://localhost:6002',
+    port: process.env.PORT || 4500,
+    open: false
+  });
+});
+
+gulp.task('serve-node', ['serve-proxy'], function () {
+  nodemon({
+    script: 'server/server',
+    ext: 'js html css',
+    ignore: [
+      'node_modules',
+      'bin',
+      'views',
+      'public',
+      'test',
+      'dist'
+    ],
+    env: {
+      'NODE_ENV': 'development'
+    },
+    stdout: false
+  }).on('readable', function() {
+  this.stdout.on('data', function(chunk) {
+  if (/^server starting on/.test(chunk)) {
+        browser.reload();
+      }
+      process.stdout.write(chunk);
+    });
+    this.stderr.on('data', function(chunk) {
+      process.stderr.write(chunk);
+    });
+  });
+});
 gulp.task('todo', function() {
   return gulp.src(paths.js)
     .pipe(todo({silent: false, verbose: true}));
@@ -67,6 +96,10 @@ gulp.task('watch', function() {
 
 gulp.task('default', function(done) {
   sync('dist', 'serve', 'watch', done);
+});
+
+gulp.task('dev-node', function(done) {
+  sync('dist', 'serve-node', 'watch', done);
 });
 
 gulp.task('dist', function(done) {
