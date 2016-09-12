@@ -1,15 +1,18 @@
 ---
 stages:
-  - name: Package
+  - name: package-dev1
     inputs:
       - type: git
-        branch: master
+        branch: dev1
     triggers:
       - type: commit
     jobs:
       - name: distribution
         type: builder
+        artifact_dir: build
         build_type: npm
+        enable_tests: true
+        test_file_pattern: '*.xml, generated/*.xml'
         script: |-
           #!/bin/bash
 
@@ -19,65 +22,28 @@ stages:
 
           export PATH=/opt/IBM/node-v4.2/bin:./node_modules/.bin:$PATH
           npm i
-          npm run dist
-
-          mv ./node_modules ./node_modules.bak
-          mv .git .git.bak
-  - name: Test
-    inputs:
-      - type: job
-        stage: Package
-        job: distribution
-    triggers:
-      - type: stage
-    properties:
-      - name: SAUCE_USERNAME
-        value: ${SAUCE_USER}
-        type: text
-      - name: SAUCE_ACCESS_KEY
-        value: ${SAUCE_KEY}
-        type: text
-    jobs:
-      - name: lint
-        type: tester
-        script: |-
-          #!/bin/bash
-          mv ./node_modules.bak ./node_modules
 
           npm run lint
-      - name: 'unit specs'
-        type: tester
-        script: |-
-          #!/bin/bash
-          mv ./node_modules.bak ./node_modules
-
           npm run test:remote
-        enable_tests: true
-        test_file_pattern: '*.xml, generated/*.xml'
-  - name: 'Last Good Build'
-    inputs:
-      - type: job
-        stage: Package
-        job: distribution
-    triggers:
-      - type: stage
-    jobs:
-      - name: 'new good build'
-        type: builder
-        build_type: shell
-        script: |-
-          #!/bin/bash
-          rm -rf ./node_modules.bak
-          mv .git.bak .git
+          npm run dist
 
           git checkout integration
           git pull origin integration
-          git merge master --no-ff --log
+          git merge dev1 --no-ff --log
           git push origin integration
-  - name: Deploy
+
+          mkdir build
+
+          cp package.json build
+          cp .cfignore build
+          cp manifest-dev.yml build
+
+          cp -rf dist build
+          cp -rf server build
+  - name: deploy-dev1
     inputs:
       - type: job
-        stage: Package
+        stage: package-dev1
         job: distribution
     triggers:
       - type: stage
@@ -95,9 +61,6 @@ stages:
           application: '${CF_APP}'
         script: |-
           #!/bin/bash
-          rm -rf ./node_modules.bak
-          rm -rf .git.bak
-
           cf add-plugin-repo CF-Community http://plugins.cloudfoundry.org
           cf install-plugin blue-green-deploy -r CF-Community <<< y
           cf bgd "${CF_APP}"-dev
