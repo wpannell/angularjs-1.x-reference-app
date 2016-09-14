@@ -87,8 +87,11 @@
     "karma-sourcemap-loader": "0.3.7",
     "karma-webpack": "1.7.0",
     "mocha": "2.2.5",
+    "ngMockHttp": "git://github.com/bbraithwaite/ngMockHttp.git#2ee3fa8aa373d04a449bd2f695b2f819ef34dbe4",
     "node-libs-browser": "0.5.2",
+    "raw-loader": "0.5.1",
     "should": "^10.0.0",
-    "testdouble": "1.1.3"
+    "testdouble": "1.1.3",
+    "url-loader": "0.5.7"
   }
 }
