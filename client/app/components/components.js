@@ -1,6 +1,6 @@
 import angular from 'angular';
-import {tabs} from './tabs/tabs';
+import {products} from './products/products';
 
 export const components = angular.module('components', [
-  tabs.name
+  products.name
 ]);

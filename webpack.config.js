@@ -1,4 +1,5 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   output: {
@@ -19,5 +20,11 @@ module.exports = {
 
   stylus: {
     use: [require('jeet')(), require('rupture')()]
-  }
+  },
+
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: './client/data/products.json' }
+    ])
+  ]
 };

@@ -2,28 +2,14 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 div.app
-  position relative
-  min-height 400px
+  min-width:300px;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100%;
+  margin: 0;
+  overflow: auto;
 
-  [ui-view].ng-enter
-    opacity 0
-    transform scale3d(0.5,0.5,0.5)
+div.view-port
+  overflow: auto;
+  height: 100vh;
 
-  [ui-view].ng-enter-active
-    opacity 1
-    transform scale3d(1,1,1)
-
-  [ui-view].ng-leave
-    opacity 1
-    transform translate3d(0,0,0)
-
-  [ui-view].ng-leave-active
-    opacity 0
-    transform translate3d(100px, 0, 0)
-
-  [ui-view].ng-enter
-  [ui-view].ng-leave
-    position absolute
-    left 0
-    right 0
-    transition all .5s ease-in-out
