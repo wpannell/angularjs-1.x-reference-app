@@ -296,3 +296,57 @@ stages:
 
           cf create-route "${CF_SPACE}" mybluemix.net -n "${CF_APP}"-dev
           cf map-route "${CF_APP}"-dev mybluemix.net -n "${CF_APP}"-dev
+  - name: deploy-qa
+    inputs:
+      - type: job
+        stage: package-dev4
+        job: distribution
+    triggers:
+      - type: manual
+    properties:
+      - name: APP_NAME
+        value: '${CF_APP}'
+        type: text
+    jobs:
+      - name: 'blue-green'
+        type: deployer
+        target:
+          url: '${CF_TARGET_URL}'
+          organization: '${CF_ORGANIZATION}'
+          space: '${CF_SPACE}'
+          application: '${CF_APP}'
+        script: |-
+          #!/bin/bash
+          cf add-plugin-repo CF-Community http://plugins.cloudfoundry.org
+          cf install-plugin blue-green-deploy -r CF-Community <<< y
+          cf bgd "${CF_APP}"-qa
+
+          cf create-route "${CF_SPACE}" mybluemix.net -n "${CF_APP}"-qa
+          cf map-route "${CF_APP}"-dev mybluemix.net -n "${CF_APP}"-qa
+  - name: deploy-stage
+    inputs:
+      - type: job
+        stage: package-dev4
+        job: distribution
+    triggers:
+      - type: manual
+    properties:
+      - name: APP_NAME
+        value: '${CF_APP}'
+        type: text
+    jobs:
+      - name: 'blue-green'
+        type: deployer
+        target:
+          url: '${CF_TARGET_URL}'
+          organization: '${CF_ORGANIZATION}'
+          space: '${CF_SPACE}'
+          application: '${CF_APP}'
+        script: |-
+          #!/bin/bash
+          cf add-plugin-repo CF-Community http://plugins.cloudfoundry.org
+          cf install-plugin blue-green-deploy -r CF-Community <<< y
+          cf bgd "${CF_APP}"-stage
+
+          cf create-route "${CF_SPACE}" mybluemix.net -n "${CF_APP}"-stage
+          cf map-route "${CF_APP}"-dev mybluemix.net -n "${CF_APP}"-stage
