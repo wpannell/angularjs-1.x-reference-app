@@ -302,7 +302,7 @@ stages:
         stage: package-dev4
         job: distribution
     triggers:
-      - type: manual
+      - type: stage
     properties:
       - name: APP_NAME
         value: '${CF_APP}'
@@ -329,7 +329,7 @@ stages:
         stage: package-dev4
         job: distribution
     triggers:
-      - type: manual
+      - type: stage
     properties:
       - name: APP_NAME
         value: '${CF_APP}'
