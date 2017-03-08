@@ -3,13 +3,6 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = function(config) {
   var customLaunchers = {
-    sl_ios_safari: { // jshint ignore:line
-      base: 'SauceLabs',
-      browserName: 'iphone',
-      platform: 'OS X 10.9',
-      version: '7.1'
-    },
-
     sl_chrome: {  // jshint ignore:line
       base: 'SauceLabs',
       browserName: 'chrome'
@@ -20,6 +13,9 @@ module.exports = function(config) {
       browserName: 'firefox'
     }
   };
+
+  process.env.SAUCE_USERNAME = 'wilpannell';
+  process.env.SAUCE_ACCESS_KEY = '19730ccc-97be-4d9f-88f8-1754e4425a6f';
 
   console.log(process.env.SAUCE_USERNAME);
   console.log(process.env.SAUCE_ACCESS_KEY);
